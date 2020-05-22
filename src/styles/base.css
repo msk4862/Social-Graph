@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: sans-serif;
+}
+
+header {
+    padding: 1.75rem;
+    color: #f8f8f8;
+    background-color: blueviolet;
+}
+
+main svg {
+    min-height: 70vh;
+    min-width: 100vw;
+}
