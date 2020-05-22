@@ -2,40 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Graph } from 'react-d3-graph';
 
 import Network from "../apis/users"
-
-
-// the graph configuration, you only need to pass down properties
-// that you want to override, otherwise default ones will be used
-const myConfig = {
-    nodeHighlightBehavior: true,
-    panAndZoom: true,
-    highlightOpacity: 5,
-    linkHighlightBehavior: true,
-
-    d3: {
-        linkLength: 200,
-        linkStrength: 3,
-    },
-
-    node: {
-        fontSize: 10,
-        highlightFontSize: 15,
-        color: '#12947f',
-        size: 550,
-        highlightStrokeColor: '#e71414',	
-    },
-    link: {
-        color: '#f17808',
-        highlightColor: 'red'
-    }
-};
-
+import { graphConfig } from "../utils/GraphConfig"
 
 const SocialGraph = () => {
 
     const [networkData, setNetworkData] = useState(null)
     const [graph, setGraph] = useState(null)
-
 
     useEffect(() => {
         
@@ -53,7 +25,6 @@ const SocialGraph = () => {
     useEffect(() => {
 
         if (networkData) {
-            
             const nodes = networkData.map((person) => {
                 if (person.is_infected) {
                     return {
@@ -71,7 +42,6 @@ const SocialGraph = () => {
                         symbolType: "circle",
                     }
                 }
-                
             });
 
             let links = [];
@@ -107,7 +77,7 @@ const SocialGraph = () => {
                 <Graph
                     id='social-graph'
                     data={graph}
-                    config={myConfig}/>
+                    config={graphConfig}/>
             )
         } 
         else {
