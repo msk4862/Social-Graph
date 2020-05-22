@@ -2,6 +2,7 @@
     "social-graph" : [
         {
             "userid": "1",
+            "is_infected": false,
             "phone_no": "9826387456",
             "near": [
                 "2", "3" 
@@ -9,14 +10,17 @@
         },
         {
             "userid": "2",
+            "is_infected": false,
             "phone_no": "9826387456",
             "near": [
-                "2", "3" 
+                "3" 
             ]
         },
         {
             "userid": "3",
-            "phone_no": "9826387456"
+            "is_infected": true,
+            "phone_no": "9826387456",
+            "near": []
         }
     ]
 }

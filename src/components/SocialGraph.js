@@ -1,22 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Graph } from 'react-d3-graph';
 
-import node from "../assets/images/people.png";
+import Network from "../apis/users"
 
-console.log(node)
-
-// graph payload (with minimalist structure)
-const data = {
-    nodes: [
-      {id: 'Harry'},
-      {id: 'Sally'},
-      {id: 'Alice'}
-    ],
-    links: [
-        {source: 'Harry', target: 'Sally'},
-        {source: 'Harry', target: 'Alice'},
-    ]
-};
 
 // the graph configuration, you only need to pass down properties
 // that you want to override, otherwise default ones will be used
@@ -37,7 +23,6 @@ const myConfig = {
         color: '#12947f',
         size: 550,
         highlightStrokeColor: '#e71414',	
-        svg: "https://image.flaticon.com/icons/svg/2922/2922686.svg",
     },
     link: {
         color: '#f17808',
@@ -48,12 +33,91 @@ const myConfig = {
 
 const SocialGraph = () => {
 
+    const [networkData, setNetworkData] = useState(null)
+    const [graph, setGraph] = useState(null)
+
+
+    useEffect(() => {
+        
+        Network.get("./social-graph")
+        .then ((res) => {
+            setNetworkData(res.data)
+        })
+        .catch ((err) => {
+            console.log(err)
+        })
+        
+    }, [])
+
+
+    useEffect(() => {
+
+        if (networkData) {
+            
+            const nodes = networkData.map((person) => {
+                if (person.is_infected) {
+                    return {
+                        id: person.userid,
+                        color: "red",
+                        size: 400,           
+                        symbolType: "diamond",
+                    }
+                }
+                else {
+                    return {
+                        id: person.userid,
+                        color: "green",
+                        size: 300,           
+                        symbolType: "circle",
+                    }
+                }
+                
+            });
+
+            let links = [];
+            for(let i = 0; i < networkData.length; ++i) {
+                for (let index = 0; index < networkData[i].near.length; index++) {
+                    links.push({
+                        source: networkData[i].userid,
+                        target: networkData[i].near[index]
+                    })
+                    
+                }
+            }
+
+            console.log(nodes)
+            console.log(links)
+
+            const graphData = {
+                nodes: nodes,
+                links: links
+            };
+            setGraph(graphData)
+        }
+        
+    }, [networkData])
+
+    function renderLoader() {
+        return <div>Loading....</div>
+    }
+
+    function renderGraph() {
+        if(graph) {
+            return (
+                <Graph
+                    id='social-graph'
+                    data={graph}
+                    config={myConfig}/>
+            )
+        } 
+        else {
+            renderLoader()
+        }
+    }
+
     return (
         <main>
-            <Graph
-                id='social-graph'
-                data={data}
-                config={myConfig}/>
+            {renderGraph()}
         </main>
     )
 }
