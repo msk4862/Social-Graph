@@ -20,7 +20,63 @@
             "userid": "3",
             "is_infected": true,
             "phone_no": "9826387456",
-            "near": []
+            "near": ["1", "2"]
+        },
+        {
+            "userid": "4",
+            "is_infected": false,
+            "phone_no": "9826387456",
+            "near": ["1"]
+        },
+        {
+            "userid": "5",
+            "is_infected": false,
+            "phone_no": "9826387456",
+            "near": ["4", "6"]
+        },
+        {
+            "userid": "6",
+            "is_infected": false,
+            "phone_no": "9826387456",
+            "near": ["2"]
+        },
+        {
+            "userid": "7",
+            "is_infected": true,
+            "phone_no": "9826387456",
+            "near": ["10", "9"]
+        },
+        {
+            "userid": "8",
+            "is_infected": false,
+            "phone_no": "9826387456",
+            "near": ["4", "5"]
+        },
+        {
+            "userid": "9",
+            "is_infected": false,
+            "phone_no": "9826387456",
+            "near": ["12"]
+        },
+        {
+            "userid": "10",
+            "is_infected": false,
+            "phone_no": "9826387456",
+            "near": ["8", "5"]
+        },
+        {
+            "userid": "11",
+            "is_infected": false,
+            "phone_no": "9826387456",
+            "near": ["10", "9"]
+        },
+        {
+            "userid": "12",
+            "is_infected": false,
+            "phone_no": "9826387456",
+            "near": ["11"]
         }
+
+
     ]
 }
