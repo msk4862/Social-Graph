@@ -30,7 +30,7 @@ const SocialGraph = () => {
             const nodes = networkData.map((person) => {
                 if (person.is_infected) {
                     return {
-                        id: person.userid,
+                        id: person.id,
                         name: person.phone_no,
                         color: "red",
                         size: 700,   
@@ -41,7 +41,7 @@ const SocialGraph = () => {
                 }
                 else {
                     return {
-                        id: person.userid,
+                        id: person.id,
                         name: person.phone_no,
                         color: "green",
                         size: 600,           
@@ -60,7 +60,7 @@ const SocialGraph = () => {
                 for (let index = 0; index < networkData[i].near.length; index++) {
                     
                     links.push({
-                        source: networkData[i].userid,
+                        source: networkData[i].id,
                         target: networkData[i].near[index],
                         color: color,
                     })
