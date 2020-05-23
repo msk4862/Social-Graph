@@ -12,7 +12,7 @@ const GraphLegends = () => {
     return (
         <div className="legends">
             <div>
-                <img src={red} style={style}/> <span> Infected Person</span><br/>
+                <img src={red} style={style}/> <span> Infected Person</span>
             </div>
 
             <div>
