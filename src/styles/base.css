@@ -8,10 +8,26 @@ html {
 }
 
 header {
-    padding: 1.75rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    padding: 10px;
     color: #f8f8f8;
     background-color: blueviolet;
 }
+
+.legends {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #f8f8f8;
+    border-radius: 5px;
+    padding: 5px;
+}
+
 
 main {
     display: flex;
@@ -20,8 +36,8 @@ main {
 }
 
 main svg {
-    min-width: 100vh;
-    min-height: 100vw;
+    min-width: 100vw;
+    min-height: 100vh;
 
 }
 

@@ -3,6 +3,8 @@ import { Graph } from 'react-d3-graph';
 
 import Network from "../apis/users"
 import { graphConfig } from "../utils/GraphConfig"
+import { RedIconUrl, GreenIconUrl } from "../utils/Constants"
+
 
 const SocialGraph = () => {
 
@@ -33,7 +35,8 @@ const SocialGraph = () => {
                         color: "red",
                         size: 700,   
                         fontColor: "red",       
-                        symbolType: "circle",
+                        // symbolType: "circle",
+                        svg: RedIconUrl,
                     }
                 }
                 else {
@@ -42,7 +45,7 @@ const SocialGraph = () => {
                         name: person.phone_no,
                         color: "green",
                         size: 600,           
-                        symbolType: "triangle",
+                        svg: GreenIconUrl,
                     }
                 }
             });

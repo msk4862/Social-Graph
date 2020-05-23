@@ -19,7 +19,7 @@ export const graphConfig = {
     },
 
     node: {
-        fontSize: 10,
+        fontSize: 12,
         highlightFontSize: 15,
         color: '#12947f',
         highlightStrokeColor: '#000000',
