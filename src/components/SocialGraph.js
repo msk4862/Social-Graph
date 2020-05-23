@@ -29,14 +29,17 @@ const SocialGraph = () => {
                 if (person.is_infected) {
                     return {
                         id: person.userid,
+                        name: person.phone_no,
                         color: "red",
-                        size: 700,           
+                        size: 700,   
+                        fontColor: "red",       
                         symbolType: "circle",
                     }
                 }
                 else {
                     return {
                         id: person.userid,
+                        name: person.phone_no,
                         color: "green",
                         size: 600,           
                         symbolType: "triangle",
@@ -46,10 +49,17 @@ const SocialGraph = () => {
 
             let links = [];
             for(let i = 0; i < networkData.length; ++i) {
+                let color = '#d1cebd'
+                if(networkData[i].is_infected) {
+                    color = 'red'
+                }
+
                 for (let index = 0; index < networkData[i].near.length; index++) {
+                    
                     links.push({
                         source: networkData[i].userid,
-                        target: networkData[i].near[index]
+                        target: networkData[i].near[index],
+                        color: color,
                     })
                     
                 }
@@ -64,6 +74,7 @@ const SocialGraph = () => {
         
     }, [networkData])
 
+    
     function renderLoader() {
         return <div className="loading">Loading....</div>
     }
@@ -73,7 +84,8 @@ const SocialGraph = () => {
             <Graph
                 id='social-graph'
                 data={graph}
-                config={graphConfig}/>
+                config={graphConfig}
+                />
         )
     }
 

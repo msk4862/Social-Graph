@@ -20,8 +20,9 @@ main {
 }
 
 main svg {
-    min-height: 70vh;
-    min-width: 100vw;
+    min-width: 100vh;
+    min-height: 100vw;
+
 }
 
 .loading {
