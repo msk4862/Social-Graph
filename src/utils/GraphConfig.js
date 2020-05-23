@@ -15,11 +15,12 @@ export const graphConfig = {
         fontSize: 10,
         highlightFontSize: 15,
         color: '#12947f',
-        size: 550,
-        highlightStrokeColor: '#e71414',	
+        highlightStrokeColor: '#000000',	
     },
     link: {
-        color: '#f17808',
-        highlightColor: 'red'
+        color: '#d1cebd',
+        highlightColor: '#323232',
+        strokeWidth: 3,
+        type: "CURVE_SMOOTH",
     }
 };

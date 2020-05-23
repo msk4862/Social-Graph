@@ -30,16 +30,16 @@ const SocialGraph = () => {
                     return {
                         id: person.userid,
                         color: "red",
-                        size: 400,           
-                        symbolType: "diamond",
+                        size: 700,           
+                        symbolType: "circle",
                     }
                 }
                 else {
                     return {
                         id: person.userid,
                         color: "green",
-                        size: 300,           
-                        symbolType: "circle",
+                        size: 600,           
+                        symbolType: "triangle",
                     }
                 }
             });
@@ -55,9 +55,6 @@ const SocialGraph = () => {
                 }
             }
 
-            console.log(nodes)
-            console.log(links)
-
             const graphData = {
                 nodes: nodes,
                 links: links
@@ -68,26 +65,21 @@ const SocialGraph = () => {
     }, [networkData])
 
     function renderLoader() {
-        return <div>Loading....</div>
+        return <div className="loading">Loading....</div>
     }
 
     function renderGraph() {
-        if(graph) {
-            return (
-                <Graph
-                    id='social-graph'
-                    data={graph}
-                    config={graphConfig}/>
-            )
-        } 
-        else {
-            renderLoader()
-        }
+        return (
+            <Graph
+                id='social-graph'
+                data={graph}
+                config={graphConfig}/>
+        )
     }
 
     return (
         <main>
-            {renderGraph()}
+            {graph? renderGraph() : renderLoader()}
         </main>
     )
 }

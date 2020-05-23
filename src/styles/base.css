@@ -13,7 +13,19 @@ header {
     background-color: blueviolet;
 }
 
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 main svg {
     min-height: 70vh;
     min-width: 100vw;
+}
+
+.loading {
+    margin-top: 5rem;
+    font-size: 2rem;
+    color: #3f3f44;
 }
