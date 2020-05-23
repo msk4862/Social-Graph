@@ -11,7 +11,6 @@ export const graphConfig = {
     panAndZoom: false,
     width: 1000,
 
-
     d3: {
         alphaTarget: 0.05,
         linkLength: 200,
